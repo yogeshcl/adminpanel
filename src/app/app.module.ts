@@ -42,7 +42,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ThemeModule.forRoot(),
     NgbModule,
   ],
-  
   bootstrap: [AppComponent],
 })
 export class AppModule {

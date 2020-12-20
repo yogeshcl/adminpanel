@@ -1,4 +1,4 @@
-export interface hashtags{
+export interface Hashtags {
     hashtags: [
         {
             numberOfSubscribers: number,
@@ -6,5 +6,5 @@ export interface hashtags{
             _id: string,
             hashtag: string;
         }
-    ]
+    ];
   }

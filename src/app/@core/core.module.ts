@@ -161,7 +161,7 @@ export const NB_CORE_PROVIDERS = [
   ],
   providers: [
 
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
 
   ],
 

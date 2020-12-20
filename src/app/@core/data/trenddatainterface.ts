@@ -1,20 +1,20 @@
-export interface trends{
+export interface Trends {
             _id: string,
             hashtag: string;
   }
 
-export interface updatetrend{
-            _id :string
+export interface Updatetrend{
+            _id :string;
 }
 
-export interface hashtagmain{
+export interface Hashtagmain{
             numberOfSubscribers: number,
             subscribers: Array<number> ,
             _id: string,
             hashtag: string;
 }
 
-export interface login{
+export interface Login{
   user:any,
-  token:string
+  token:string;
 }

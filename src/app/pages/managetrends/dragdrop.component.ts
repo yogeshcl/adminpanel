@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { ManagetrendService } from './../../@core/utils/managetrend.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { hashtagmain } from './../../@core/data/trenddatainterface';
+import { Hashtagmain } from './../../@core/data/trenddatainterface';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -21,8 +21,8 @@ export class DragdropComponent implements OnInit {
   //   'Fall asleep'
   // ];
   api ;
-  done : Array<hashtagmain> = [] ;
-  todo : Array<hashtagmain> = [] ;
+  done : Array<Hashtagmain> = [] ;
+  todo : Array<Hashtagmain> = [] ;
   // done = [
   //   'Get up',
   //   'Brush teeth',
@@ -82,7 +82,7 @@ export class DragdropComponent implements OnInit {
     
   }
   deleteItem(value){
-    var i =0;
+    let i =0;
     for (let val of this.todo){
       if(val.hashtag == value){
         this.todo.splice(i, 1);
@@ -106,7 +106,7 @@ export class DragdropComponent implements OnInit {
   }
 
   updateTrend(){
-    var data :Array<string> = [];
+    let data :Array<string> = [];
     for (let val of this.todo){
       data.push(val["_id"])
   }
