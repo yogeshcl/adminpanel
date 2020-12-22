@@ -1,5 +1,8 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
@@ -11,6 +14,7 @@ import {
   PlayerService,
   SeoService,
   StateService,
+  ManagetrendService,
 } from './utils';
 import { UserData } from './data/users';
 import { ElectricityData } from './data/electricity';
@@ -52,6 +56,8 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+
+import { AuthInterceptor } from './utils/auth.interceptor';
 
 const socialLinks = [
   {
@@ -143,6 +149,7 @@ export const NB_CORE_PROVIDERS = [
   PlayerService,
   SeoService,
   StateService,
+  ManagetrendService,
 ];
 
 @NgModule({
@@ -152,6 +159,12 @@ export const NB_CORE_PROVIDERS = [
   exports: [
     NbAuthModule,
   ],
+  providers: [
+
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
+  ],
+
   declarations: [],
 })
 export class CoreModule {
